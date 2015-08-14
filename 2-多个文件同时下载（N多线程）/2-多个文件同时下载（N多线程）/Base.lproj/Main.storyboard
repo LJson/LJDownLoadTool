@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7BE-Ca-V6i">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="I7I-wQ-Byb">
+            <objects>
+                <navigationController id="7BE-Ca-V6i" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ouc-go-21y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Rx6-qf-oMQ" kind="relationship" relationship="rootViewController" id="eQ0-oO-xSx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mD-w2-BHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-455" y="386"/>
+        </scene>
+        <!--小黄人全集下载-->
+        <scene sceneID="kem-aW-uCg">
+            <objects>
+                <tableViewController id="Rx6-qf-oMQ" customClass="ViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="bNd-DF-AYl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="OLe-qi-duM" customClass="DownloadCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OLe-qi-duM" id="n54-Pd-Itq">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qiE-Gz-yZs">
+                                            <rect key="frame" x="521" y="34" width="51" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="ET8-S3-Nhy"/>
+                                                <constraint firstAttribute="width" constant="49" id="GNg-xN-5jA"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="switcherChanged:" destination="OLe-qi-duM" eventType="valueChanged" id="caQ-rP-zn9"/>
+                                            </connections>
+                                        </switch>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OHH-81-w17">
+                                            <rect key="frame" x="30" y="66" width="200" height="3"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="3" id="Jky-dH-iLl"/>
+                                                <constraint firstAttribute="width" constant="200" id="cH1-Cv-LdG"/>
+                                            </constraints>
+                                        </progressView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="第一集" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr3-4S-guf">
+                                            <rect key="frame" x="30" y="19" width="51" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OHH-81-w17" firstAttribute="leading" secondItem="n54-Pd-Itq" secondAttribute="leading" constant="30" id="bvT-Nt-vTM"/>
+                                        <constraint firstAttribute="centerY" secondItem="qiE-Gz-yZs" secondAttribute="centerY" id="dL5-Oi-DbM"/>
+                                        <constraint firstAttribute="trailing" secondItem="qiE-Gz-yZs" secondAttribute="trailing" constant="30" id="dZR-ba-acI"/>
+                                        <constraint firstAttribute="bottom" secondItem="OHH-81-w17" secondAttribute="bottom" constant="30" id="fsn-Xe-pgI"/>
+                                        <constraint firstItem="Dr3-4S-guf" firstAttribute="top" secondItem="n54-Pd-Itq" secondAttribute="top" constant="20" id="gTe-Q3-4h8"/>
+                                        <constraint firstItem="Dr3-4S-guf" firstAttribute="leading" secondItem="n54-Pd-Itq" secondAttribute="leading" constant="30" id="uuI-U6-1CU"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="progressView" destination="OHH-81-w17" id="3yq-eZ-b6X"/>
+                                    <outlet property="switcher" destination="qiE-Gz-yZs" id="Y5R-N8-jHV"/>
+                                    <outlet property="titleLabel" destination="Dr3-4S-guf" id="NQ0-OS-JOB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Rx6-qf-oMQ" id="hmd-Il-FHL"/>
+                            <outlet property="delegate" destination="Rx6-qf-oMQ" id="3SI-P2-pIR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="小黄人全集下载" id="1Ku-Hu-kly"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVY-xw-etb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221" y="386"/>
+        </scene>
+    </scenes>
+</document>
